@@ -10,7 +10,11 @@ function Navbar() {
       <a class="item active">Home</a>
       <a class="item">About</a>
       <a class="item">Contibute</a>
+      <div class="item center">
+        Unsanctioned GEU Events | By Students for students
+      </div>
       <div class="right menu">
+        
         <div class="item">
           <div class="ui icon input">
             <input type="text" placeholder="Search..." />

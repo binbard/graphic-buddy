@@ -10,6 +10,8 @@ styleLink.rel = "stylesheet";
 styleLink.href = "https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css";
 document.head.appendChild(styleLink);
 
+document.title=" Offstage Graphic Buddy";
+
 ReactDOM.render(
   <React.StrictMode>
     <App/>
