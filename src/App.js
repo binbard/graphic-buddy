@@ -1,23 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import SwiperCore, { Autoplay } from 'swiper';
+import Navbar from './components/navbar';
+import Sidebar from './components/sidebar';
+import NewsSidebar from './components/news-sidebar';
+import BannerSlider from './components/banner-slider';
 
 function App() {
+  SwiperCore.use([Autoplay]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Sidebar />
+      <NewsSidebar/>
+      <BannerSlider/>
     </div>
   );
 }
