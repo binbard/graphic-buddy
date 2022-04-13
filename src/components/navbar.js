@@ -1,24 +1,28 @@
 // import 'fomantic-ui-css/semantic.min.css';
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 
 function Navbar() {
+  const navigate = useNavigate();
   return (
-    <div class="ui stackable menu">
-      <div class="item">
-        <img src="https://pbs.twimg.com/profile_images/976683214201765888/Wy4LUm8Q_400x400.jpg" />
+    <div className="ui stackable menu">
+      <div className="item">
+        <img src="https://pbs.twimg.com/profile_images/976683214201765888/Wy4LUm8Q_400x400.jpg" alt="GEU Logo" />
       </div>
-      <a class="item active">Home</a>
-      <a class="item">About</a>
-      <a class="item">Contibute</a>
-      <div class="item center">
-        Unsanctioned GEU Events | By Students for students
+      <a className="item active" onClick={() => navigate("/")}>Home</a>
+      <a className="item" onClick={() => navigate("/about")}>About</a>
+      <a className="item" onClick={() => {window.history.pushState({}, "About", "/about"); window.location.reload()}}>
+        goto login by navigate (its worked)
+      </a>
+      <div className="item center">
+      <span className="ui medium red text">Unsanctioned GEU Events </span> &nbsp; | &nbsp; 
+      <span className="ui medium yellow text">For Students by students</span>
       </div>
-      <div class="right menu">
-        
-        <div class="item">
-          <div class="ui icon input">
+      <div className="right menu">
+        <div className="item">
+          <div className="ui icon input">
             <input type="text" placeholder="Search..." />
-            <i class="search link icon"></i>
+            <i className="search link icon"></i>
           </div>
         </div>
       </div>

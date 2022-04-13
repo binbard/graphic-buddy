@@ -4,16 +4,23 @@ import SwiperCore, { Autoplay } from 'swiper';
 import Navbar from './components/navbar';
 import Sidebar from './components/sidebar';
 import NewsSidebar from './components/news-sidebar';
-import BannerSlider from './components/banner-slider';
+import Home from './pages/home';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import About from './pages/about';
 
 function App() {
-  SwiperCore.use([Autoplay]);
   return (
     <div>
+      
+      <BrowserRouter>
       <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
       <Sidebar />
-      <NewsSidebar/>
-      <BannerSlider/>
+      <NewsSidebar />
     </div>
   );
 }
