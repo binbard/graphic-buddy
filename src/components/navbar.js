@@ -1,6 +1,5 @@
-// import 'fomantic-ui-css/semantic.min.css';
-import React from 'react';
-import {useNavigate} from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -11,12 +10,12 @@ function Navbar() {
       </div>
       <a className="item active" onClick={() => navigate("/")}>Home</a>
       <a className="item" onClick={() => navigate("/about")}>About</a>
-      <a className="item" onClick={() => {window.history.pushState({}, "About", "/about"); window.location.reload()}}>
-        goto login by navigate (its worked)
-      </a>
+      <a className="item" onClick={() => navigate("/contact")}>Contact</a>
+      <a className="item" onClick={() => navigate("/contact")}>Team</a>
+      <a className="item" onClick={() => navigate("/contact")}>Terms</a>
       <div className="item center">
-      <span className="ui medium red text">Unsanctioned GEU Events </span> &nbsp; | &nbsp; 
-      <span className="ui medium yellow text">For Students by students</span>
+        <span className="ui medium red text">Unsanctioned GEU Events </span> &nbsp; | &nbsp;
+        <span className="ui medium yellow text">For Students by students</span>
       </div>
       <div className="right menu">
         <div className="item">

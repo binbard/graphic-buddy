@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import 'fomantic-ui-css/semantic.css';
 import reportWebVitals from './reportWebVitals';
 
 const styleLink = document.createElement("link");
