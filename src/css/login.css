@@ -1,0 +1,10 @@
+#o-login__form {
+    padding-top: 10vh;
+}
+
+@media screen and (min-width: 768px) {
+    #o-login__form {
+        padding: 25%;
+        padding-top: 10vh;
+    }
+}

@@ -3,7 +3,7 @@ import BannerSlider from "../components/banner-slider";
 
 function Home() {
     return (
-        <div style={{ marginLeft: "18vw", marginRight: "18vw", marginTop: "5vh" }}>
+        <div class="ps">
             <div style={{ marginLeft: "10vw", marginBottom: "30px" }}>
                 <span className="ui huge brown text">Some
                     <span className="ui yellow text"> Glimpses </span> of Our Events
