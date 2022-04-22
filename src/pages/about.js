@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
     return (
-        <div class="ps">
+        <div className="ps">
             Hey, About me?
         </div>
     )

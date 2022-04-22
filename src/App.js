@@ -14,33 +14,46 @@ import SwiperCore, { Autoplay } from 'swiper';
 import RecordList from './components/admin/recordList';
 import Edit from './components/admin/edit';
 import Create from './components/admin/create';
+import CreateEvent from './components/admin/createEvent'
+import Admin from './pages/admin'
 
-function Router(){
+function Router() {
   return (
     <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="contribute" element={<Contribute />} />
-          <Route path="geu" element={<Geu />} />
-          <Route path="gehu" element={<Gehu />} />
-          <Route path="admin" element={<Alogin />} />
+      <Route path="/" element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="contribute" element={<Contribute />} />
+      <Route path="geu" element={<Geu />} />
+      <Route path="gehu" element={<Gehu />} />
+      <Route path="admin" element={<Alogin />} />
+      <Route path="admin/create-event" element={<CreateEvent />} />
 
-          <Route exact path="/record" element={<RecordList />} />
-          <Route path="/edit/:id" element={<Edit />} />
-          <Route path="/create" element={<Create />} />
-        </Routes>
+      <Route exact path="/record" element={<RecordList />} />
+      <Route path="/edit/:id" element={<Edit />} />
+      <Route path="/create" element={<Create />} />
+    </Routes>
   )
 }
 
+
 function App() {
+  // var n=0;
+  // var pn = window.location.pathname == "/admin";
+  // if (pn) n=1
+  // else n=0;
+  var n=0;
+
+  
+
   SwiperCore.use([Autoplay]);
   return (
     <div>
       <BrowserRouter>
         <Navbar />
-        <Router/>
+        <Router />
         <Sidebar />
+        {/* n===1? <Admin/> : <></> */}
       </BrowserRouter>
       <NewsSidebar />
     </div>

@@ -11,19 +11,19 @@ function makeActive(e) {
 
 export default function Geu() {
     return (
-        <div class="ps">
-            <div class="ui secondary pointing menu">
-                <a class="item" onClick={makeActive}>
+        <div className="ps">
+            <div className="ui secondary pointing menu">
+                <a className="item" onClick={makeActive}>
                     IEEE
                 </a>
-                <a class="item active" onClick={makeActive}>
+                <a className="item active" onClick={makeActive}>
                     ACM
                 </a>
-                <a class="item" onClick={makeActive}>
+                <a className="item" onClick={makeActive}>
                     Kavyanjali
                 </a>
             </div>
-            <div class="ui segment">
+            <div className="ui segment">
                 <EventCard/>
             </div>
         </div>

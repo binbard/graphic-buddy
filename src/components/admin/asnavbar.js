@@ -1,23 +1,33 @@
+import { useNavigate } from "react-router-dom";
+import Admin from '../../pages/admin';
 import Logout from "./logout";
 
 export default function AsNavbar(props) {
+    var navigate = useNavigate();
+    var user = props.user;
     return (
-        <div>
-            <div class="ui secondary  menu">
-                <a class="item">
+        <div className="ps">
+            <div className="ui secondary menu">
+                <a className="item">
                     Home
                 </a>
-                <a class="item active">
-                    Messages
+                <a className="item active">
+                    By You
                 </a>
-                <a class="item">
-                    Friends
+                <a className="item" onClick={() => navigate("/admin/create-event")}>
+                    Create Event
                 </a>
-                <div class="right menu">
+                <a className="item">
+                    Your Profile
+                </a>
+                <div className="right menu">
                     <div style={{ paddingTop: "8px" }}>
-                        <sub>{props.id}</sub>
+                        <sub>{user.id}</sub>
                     </div>
-                    <a class="ui item" onClick={Logout}>
+                    <a className="ui item" onClick={() => {
+                        Logout();
+                        <Admin />; navigate("/")
+                    }}>
                         Logout
                     </a>
                 </div>

@@ -1,8 +1,9 @@
 import React from 'react';
 import * as Realm from "realm-web";
+import AsNavbar from './admin/asnavbar'
 
-const APP_ID = 'application-0-lkkyg';
-const app = new Realm.App({ id: APP_ID });
+// const APP_ID = 'application-0-lkkyg';
+// const app = new Realm.App({ id: APP_ID });
 
 function UserDetail({ user }) {
     return (
@@ -11,7 +12,7 @@ function UserDetail({ user }) {
         </div>
     );
 }
-function Login({ setUser }) {
+function Login({ setUser,app }) {
 
     const loginAnonymous = async () => {
         const user = await app.logIn(Realm.Credentials.anonymous());
@@ -23,18 +24,17 @@ function Login({ setUser }) {
         const password = "pahgal123";
         const user = await app.logIn(Realm.Credentials.emailPassword(email, password));
         setUser(user);
-        window.location.reload();
     };
 
     return <button onClick={loginUser}>Log In</button>;
 }
 
 
-function Glogin() {
+function Glogin({app}) {
     const [user, setUser] = React.useState(app.currentUser);
     return (
-        <div class="ps">
-            {user ? <UserDetail user={user} /> : <Login setUser={setUser} />}
+        <div className="ps">
+            {user ? <AsNavbar user={user} setUser={setUser} /> : <Login setUser={setUser} app={app} />}
         </div>
     )
 }

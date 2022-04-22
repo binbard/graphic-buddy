@@ -11,16 +11,16 @@ function makeActive(e) {
 
 export default function Gehu() {
     return (
-        <div class="ps">
-            <div class="ui secondary pointing menu">
-                <button class="item" onClick={makeActive}>
+        <div className="ps">
+            <div className="ui secondary pointing menu">
+                <button className="item" onClick={makeActive}>
                     IEEE
                 </button>
-                <button class="item active"  onClick={makeActive}>
+                <button className="item active"  onClick={makeActive}>
                     ACM-W
                 </button>
             </div>
-            <div class="ui segment">
+            <div className="ui segment">
                 <EventCard/>
             </div>
         </div>

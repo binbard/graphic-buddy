@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import $ from 'jquery'
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -17,7 +18,6 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
 
 const scriptLink = document.createElement("script");
 scriptLink.href = "https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js";

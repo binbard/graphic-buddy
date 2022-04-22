@@ -3,7 +3,7 @@ import GeuIeee from "./geu/geu";
 
 function Geu(){
     return (
-        <div class="ps">
+        <div className="ps">
             <GeuIeee/>
         </div>
     )

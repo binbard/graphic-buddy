@@ -41,7 +41,7 @@ export default function Create() {
  
  // This following section will display the form that takes the input from the user.
  return (
-   <div class="ps">
+   <div className="ps">
      <h3>Create New Record</h3>
      <form onSubmit={onSubmit}>
        <div className="form-group">

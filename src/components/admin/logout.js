@@ -8,5 +8,5 @@ export default function Logout() {
     for (var i = 0; i < arr.length; i++) {
         localStorage.removeItem(arr[i]);
     }
-    window.location = "/";
+    
 }
