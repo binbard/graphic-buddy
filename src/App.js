@@ -11,9 +11,6 @@ import Gehu from './pages/gehu/gehu';
 import Contribute from './pages/contribute';
 import Alogin from './pages/admin';
 import SwiperCore, { Autoplay } from 'swiper';
-import RecordList from './components/admin/recordList';
-import Edit from './components/admin/edit';
-import Create from './components/admin/create';
 import CreateEvent from './components/admin/createEvent'
 import Admin from './pages/admin'
 
@@ -28,10 +25,6 @@ function Router() {
       <Route path="gehu" element={<Gehu />} />
       <Route path="admin" element={<Alogin />} />
       <Route path="admin/create-event" element={<CreateEvent />} />
-
-      <Route exact path="/record" element={<RecordList />} />
-      <Route path="/edit/:id" element={<Edit />} />
-      <Route path="/create" element={<Create />} />
     </Routes>
   )
 }
