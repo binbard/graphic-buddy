@@ -11,10 +11,10 @@ const {
 
 const APP_ID = 'application-0-lkkyg';
 const app = new Realm.App({ id: APP_ID });
+const mongo = app.currentUser.mongoClient('mongodb-atlas');
+const collection = mongo.db('events').collection('geu');
 
 async function okDone(form) {
-  const mongo = app.currentUser.mongoClient('mongodb-atlas');
-  const collection = mongo.db('events').collection('geu');
   let theEvent = {
     eventName: form.eventName,
     imageLink: form.imageLink,
@@ -23,7 +23,7 @@ async function okDone(form) {
     forHill: form.forHill,
   }
   const result = await collection.updateOne({ eventName: form.eventName }, { $setOnInsert: theEvent }, { upsert: true });
-  console.log('Done'+result);
+  console.log(`Done $result`);
 }
 
 function pokDone(form) {
@@ -43,11 +43,12 @@ export default function CreateEvent() {
     imageLink: "",
     eventLink: "",
     forDeemed: true,
-    forHill: false,
+    forHill: true,
     tnc: false,
   });
 
   function updateForm(value) {
+    console.log(value)
     return setForm((prev) => {
       return { ...prev, ...value };
     });
