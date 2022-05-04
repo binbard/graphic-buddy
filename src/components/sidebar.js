@@ -11,8 +11,8 @@ function Sidebar() {
                     <img className="ui mini image" src={logo} style={{ width: "100px", marginTop: "10%", marginLeft: "14%" }} />
                 </div>
                 <div style={{ height: "50px" }}></div>
-                <a className="item" onClick={() => navigate("/geu")}>GEU</a>
-                <a className="item" onClick={() => navigate("/gehu")}>GEHU Dehradun</a>
+                <a className="item" onClick={() => navigate("/geu/ieee")}>GEU</a>
+                <a className="item" onClick={() => navigate("/gehu/acm-w")}>GEHU Dehradun</a>
             </div>
         </div>
     )

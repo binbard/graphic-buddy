@@ -1,15 +1,20 @@
+import { Outlet, useNavigate } from "react-router-dom";
 import EventCard from "../../components/event-card";
 
-function makeActive(e) {
-    let fc = e.currentTarget.parentNode.children;
-    let afc=[...fc];
-    afc.forEach(el => {
-        el.classList.remove("active");
-    });
-    e.currentTarget.classList.toggle("active");
-}
-
 export default function Gehu() {
+    var navigate=useNavigate();
+    function makeActive(e) {
+    
+        let fc = e.currentTarget.parentNode.children;
+        let afc=[...fc];
+        afc.forEach(el => {
+            el.classList.remove("active");
+        });
+        e.currentTarget.classList.toggle("active");
+        if(e.currentTarget.innerHTML=="IEEE") { console.log("ieee"); navigate('/gehu/ieee'); }
+        else if(e.currentTarget.innerHTML=="ACM-W"){ console.log("acm"); navigate('/gehu/acm-w'); }
+    }
+    
     return (
         <div className="ps">
             <div className="ui secondary pointing menu">
@@ -21,8 +26,10 @@ export default function Gehu() {
                 </button>
             </div>
             <div className="ui segment">
-                <EventCard/>
+                {/* <EventCard/> */}
             </div>
+            <Outlet/>
         </div>
+        
     )
 }

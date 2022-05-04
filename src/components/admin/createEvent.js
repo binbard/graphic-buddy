@@ -2,19 +2,19 @@ import { Checkbox, Button } from "fomantic-ui-react"
 // import AddUpdate from "../../../server/routes/update";
 
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
-
 import * as Realm from "realm-web";
+
 const {
   BSON: { ObjectId },
 } = Realm;
 
 const APP_ID = 'application-0-lkkyg';
 const app = new Realm.App({ id: APP_ID });
-const mongo = app.currentUser.mongoClient('mongodb-atlas');
-const collection = mongo.db('events').collection('geu');
+
 
 async function okDone(form) {
+  const mongo = app.currentUser.mongoClient('mongodb-atlas');
+  const collection = mongo.db('events').collection('geu');
   let theEvent = {
     eventName: form.eventName,
     imageLink: form.imageLink,
@@ -66,7 +66,7 @@ export default function CreateEvent() {
             onChange={(e) => updateForm({ eventName: e.target.value })} />
         </div>
         <div className="field">
-          <label>Event banner link</label>
+          <label>Event banner image link. [You can <a href="http://imgur.com/upload" target="blank">Upload here</a> and paste direct link]</label>
           <input type="text" name="imageLink" placeholder="https://imgur.com/wjfi933"
             value={form.imageLink}
             onChange={(e) => updateForm({ imageLink: e.target.value })} />

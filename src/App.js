@@ -13,6 +13,9 @@ import Alogin from './pages/admin';
 import SwiperCore, { Autoplay } from 'swiper';
 import CreateEvent from './components/admin/createEvent'
 import Admin from './pages/admin'
+import GehuIeee from './pages/gehu/ieee';
+import GehuAcmw from './pages/gehu/acmw';
+import GeuIeee from './pages/geu/ieee';
 
 function Router() {
   return (
@@ -21,8 +24,13 @@ function Router() {
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
       <Route path="contribute" element={<Contribute />} />
-      <Route path="geu" element={<Geu />} />
-      <Route path="gehu" element={<Gehu />} />
+      <Route path="geu" element={<Geu />} >
+        <Route path="ieee" element={<GeuIeee />} />
+      </Route>
+      <Route path="gehu" element={<Gehu />} >
+        <Route path="ieee" element={<GehuIeee />} />
+        <Route path="acm-w" element={<GehuAcmw />} />
+      </Route>
       <Route path="admin" element={<Alogin />} />
       <Route path="admin/create-event" element={<CreateEvent />} />
     </Routes>
@@ -31,14 +39,6 @@ function Router() {
 
 
 function App() {
-  // var n=0;
-  // var pn = window.location.pathname == "/admin";
-  // if (pn) n=1
-  // else n=0;
-  var n=0;
-
-  
-
   SwiperCore.use([Autoplay]);
   return (
     <div>
