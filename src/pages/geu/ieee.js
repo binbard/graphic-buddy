@@ -4,6 +4,12 @@ import * as Realm from "realm-web";
 const APP_ID = 'application-0-lkkyg';
 const app = new Realm.App({ id: APP_ID });
 
+// const evs = [
+//     { _id: 1, name: "foo", contact: "abc", age: 20 },
+//     { _id: 2, name: "bar", contact: "efg", age: 30 },
+//     { _id: 3, name: "baz", contact: "hij", age: 40 }
+// ];
+
 async function okGet() {
     const mongo = app.currentUser.mongoClient('mongodb-atlas');
     const collection = mongo.db('events').collection('geu');
@@ -15,45 +21,63 @@ async function okGet() {
     //     forHill: form.forHill,
     // }
     const evs = await collection.find({ forHill: true })
-        .then( okEvs => {
-            // console.log("evs type", typeof(okEvs));
-            return [...okEvs]
-        } );
-    console.log("evs", evs.length);
+        .then(okEvs => {
+            console.log(okEvs)
+            return okEvs
+        });
+    return new Promise(resolve => setTimeout(() => resolve(evs), 0));
 }
 
+
 export default class GeuIeee extends React.Component {
-    // let evs=okGet();
-    // console.log("evs", evs.length);
 
-    constructor(props){
-        super(props);
-        this.state = {
-            evs: [19,11,10]
-        }
+    state = {
+        evs: [],
     }
 
-    componentWillMount() {
-        var evs = okGet()
-            .then(tv=>
-                this.setState({evs:tv})
-            )
+    getData = () =>
+        okGet()
+            .then(evs => this.setState({ evs }))
+
+    componentDidMount() {
+        okGet().then(evs => this.setState({ evs }));
     }
-
-    // componentDidMount() {
-    //     var okEvs = okGet();
-
-    //     fetch(okEvs)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             this.setState({ evs: data })
-    //         })
-    // }
 
     render() {
+        const events = this.state.evs.map(evs => (
+
+            <div className="card">
+                <div className="blurring dimmable image">
+                    <div className="ui dimmer">
+                        <div className="content">
+                            <div className="center">
+                                <div className="ui inverted button">Add Friend</div>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="https://miro.medium.com/max/1400/1*ydhn1QPAKsrbt6UWfn3YnA.jpeg" />
+                </div>
+                <div className="content">
+                    <a className="header">{evs.eventName}</a>
+                    <div className="meta">
+                        <span className="date">Created in Sep 2014</span>
+                    </div>
+                </div>
+                <div className="extra content">
+                    <a>
+                        <i className="users icon"></i>
+                        2 Members
+                    </a>
+                </div>
+            </div>
+        ));
+
         return (
             <div>
                 <div className="ui special cards">
+
+                    {events}
+
                     <div className="card">
                         <div className="blurring dimmable image">
                             <div className="ui dimmer">
@@ -63,10 +87,10 @@ export default class GeuIeee extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            <img onClick={okGet} src="https://miro.medium.com/max/1400/1*ydhn1QPAKsrbt6UWfn3YnA.jpeg" />
+                            <img src="https://miro.medium.com/max/1400/1*ydhn1QPAKsrbt6UWfn3YnA.jpeg" />
                         </div>
                         <div className="content">
-                            <a className="header">{this.state.evs}</a>
+                            <a className="header">{events}</a>
                             <div className="meta">
                                 <span className="date">Created in Sep 2014</span>
                             </div>
