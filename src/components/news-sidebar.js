@@ -11,11 +11,11 @@ function NewsSidebar() {
                 </a>
                 <a className="item">
                     <h4 className="ui header">Coupons</h4>
-                    <p>Check out our collection of coupons</p>
+                    <p>Check out our collection of coupons on events</p>
                 </a>
                 <a className="item active">
-                    <h4 className="ui header">Rebates</h4>
-                    <p>Visit our rebate forum for information on claiming rebates</p>
+                    <h4 className="ui header">Volunteer</h4>
+                    <p>Visit our rebate forum for information on claiming volunteering points</p>
                 </a>
             </div>
         </div>

@@ -4,6 +4,7 @@ import * as Realm from "realm-web";
 const APP_ID = 'application-0-lkkyg';
 const app = new Realm.App({ id: APP_ID });
 
+
 // const evs = [
 //     { _id: 1, name: "foo", contact: "abc", age: 20 },
 //     { _id: 2, name: "bar", contact: "efg", age: 30 },
@@ -11,8 +12,7 @@ const app = new Realm.App({ id: APP_ID });
 // ];
 
 async function okGet() {
-    const mongo = app.currentUser.mongoClient('mongodb-atlas');
-    const collection = mongo.db('events').collection('geu');
+    
     // let theEvent = {
     //     eventName: form.eventName,
     //     imageLink: form.imageLink,
@@ -20,7 +20,10 @@ async function okGet() {
     //     forDeemed: form.forDeemed,
     //     forHill: form.forHill,
     // }
-    const evs = await collection.find({ forHill: true })
+    
+    const mongo = app.currentUser.mongoClient('mongodb-atlas');
+    const collection = mongo.db('events').collection('geu');
+    const evs = await collection.find({ forDeemed: true, org:"ieee"})
         .then(okEvs => {
             console.log(okEvs)
             return okEvs
@@ -46,7 +49,7 @@ export default class GeuIeee extends React.Component {
     render() {
         const events = this.state.evs.map(evs => (
 
-            <div className="card">
+            <div className="card ecard">
                 <div className="blurring dimmable image">
                     <div className="ui dimmer">
                         <div className="content">
@@ -55,7 +58,7 @@ export default class GeuIeee extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <img src="https://miro.medium.com/max/1400/1*ydhn1QPAKsrbt6UWfn3YnA.jpeg" />
+                    <img src={evs.imageLink} />
                 </div>
                 <div className="content">
                     <a className="header">{evs.eventName}</a>
@@ -78,7 +81,7 @@ export default class GeuIeee extends React.Component {
 
                     {events}
 
-                    <div className="card">
+                    {/* <div className="card ecard" onClick={function(e){e.preventDefault();window.location.href="https://example.com"}}>
                         <div className="blurring dimmable image">
                             <div className="ui dimmer">
                                 <div className="content">
@@ -90,7 +93,7 @@ export default class GeuIeee extends React.Component {
                             <img src="https://miro.medium.com/max/1400/1*ydhn1QPAKsrbt6UWfn3YnA.jpeg" />
                         </div>
                         <div className="content">
-                            <a className="header">{events}</a>
+                            <a className="header" id="ecard_title">OK</a>
                             <div className="meta">
                                 <span className="date">Created in Sep 2014</span>
                             </div>
@@ -101,9 +104,9 @@ export default class GeuIeee extends React.Component {
                                 2 Members
                             </a>
                         </div>
-                    </div>
+                    </div> */}
 
-                    {[...Array(10)].map((e, i) => <div className="card">
+                    {/* {[...Array(10)].map((e, i) => <div className="card ecard">
                         <div className="blurring dimmable image">
                             <div className="ui dimmer">
                                 <div className="content">
@@ -126,10 +129,10 @@ export default class GeuIeee extends React.Component {
                                 2 Members
                             </a>
                         </div>
-                    </div>)}
+                    </div>)} */}
 
 
-                    <div className="card">
+                    {/* <div className="card ecard">
                         <div className="blurring dimmable image">
                             <div className="ui inverted dimmer">
                                 <div className="content">
@@ -152,7 +155,7 @@ export default class GeuIeee extends React.Component {
                                 2 Members
                             </a>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )

@@ -21,9 +21,11 @@ async function okDone(form) {
     eventLink: form.eventLink,
     forDeemed: form.forDeemed,
     forHill: form.forHill,
+    org: form.org,
   }
   const result = await collection.updateOne({ eventName: form.eventName }, { $setOnInsert: theEvent }, { upsert: true });
   console.log(`Done $result`);
+  alert("Created!")
 }
 
 function pokDone(form) {
@@ -33,6 +35,7 @@ function pokDone(form) {
     eventLink: form.eventLink,
     forDeemed: form.forDeemed,
     forHill: form.forHill,
+    org: form.org,
   }
   console.log(theEvent);
 }
@@ -44,6 +47,7 @@ export default function CreateEvent() {
     eventLink: "",
     forDeemed: true,
     forHill: true,
+    org: "",
     tnc: false,
   });
 
@@ -59,7 +63,7 @@ export default function CreateEvent() {
       <h1>Create New Event</h1>
       <br />
       <form onSubmit={function (e) { e.preventDefault(); okDone(form) }} className="ui form">
-        <div className="field">
+        <div className="field required">
           <label>Event Name</label>
           <input type="text" name="eventName" placeholder="Rogathon 2.0"
             value={form.eventName}
@@ -67,11 +71,11 @@ export default function CreateEvent() {
         </div>
         <div className="field">
           <label>Event banner image link. [You can <a href="http://imgur.com/upload" target="blank">Upload here</a> and paste direct link]</label>
-          <input type="text" name="imageLink" placeholder="https://imgur.com/wjfi933"
+          <input type="text" name="imageLink" placeholder="https://i.imgur.com/s8XCovZb.jpg"
             value={form.imageLink}
             onChange={(e) => updateForm({ imageLink: e.target.value })} />
         </div>
-        <div className="field">
+        <div className="field required">
           <label>Event Registration link</label>
           <input type="text" name="eventLink" placeholder="https://forms.google.com/sd3dk-43f34-er443"
             value={form.eventLink}
@@ -95,6 +99,27 @@ export default function CreateEvent() {
               type='checkbox'
             />
             <br /><br />
+            {/* <div>
+              <p>Select org:</p>
+              <input type="radio" name="ieee" value="ieee" />
+              &nbsp;&nbsp;
+              <label>IEEE</label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="acm" value="acm" />
+              &nbsp;&nbsp;
+              <label>ACM</label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="kavyanjali" value="kavyanjali" />
+              <label>IEEE</label>
+            </div> */}
+            <label for="cars">Select org:</label>&nbsp;&nbsp;
+            <select name="org" onChange={(e) => updateForm({ org: e.target.value })}>
+              <option value="acm">ACM</option>
+              <option value="acm-w">ACM-W</option>
+              <option value="ieee">IEEE</option>
+              <option value="kavyanjali">Kavyanjali</option>
+            </select>
+            <br /> <br />
           </div>
           <div className="ui toggle checkbox">
             <Checkbox readOnly checked={true} label={<div>By proceeding, you agree to our <a href="https://termsandconditions.com" target="blank">Terms and Conditions</a></div>} />

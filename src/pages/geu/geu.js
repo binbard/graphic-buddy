@@ -1,5 +1,4 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import EventCard from "../../components/event-card";
 
 export default function Geu() {
     var navigate=useNavigate();
@@ -11,8 +10,9 @@ export default function Geu() {
             el.classList.remove("active");
         });
         e.currentTarget.classList.toggle("active");
-        if(e.currentTarget.innerHTML=="IEEE") { console.log("ieee"); navigate('/geu/ieee'); }
-        else if(e.currentTarget.innerHTML=="ACM-W"){ console.log("acm"); navigate('/geu/acm-w'); }
+        if(e.currentTarget.innerHTML==="IEEE") { console.log("ieee"); navigate('/geu/ieee'); }
+        else if(e.currentTarget.innerHTML==="ACM"){ console.log("acm"); navigate('/geu/acm'); }
+        else if(e.currentTarget.innerHTML==="Kavyanjali"){ console.log("kavyanjali"); navigate('/geu/kavyanjali'); }
     }
     
     return (
