@@ -16,6 +16,8 @@ import Admin from './pages/admin'
 import GehuIeee from './pages/gehu/ieee';
 import GehuAcmw from './pages/gehu/acmw';
 import GeuIeee from './pages/geu/ieee';
+import GeuAcm from './pages/geu/acm';
+import GeuKavyanjali from './pages/geu/kavyanjali';
 
 function Router() {
   return (
@@ -26,6 +28,8 @@ function Router() {
       <Route path="contribute" element={<Contribute />} />
       <Route path="geu" element={<Geu />} >
         <Route path="ieee" element={<GeuIeee />} />
+        <Route path="acm" element={<GeuAcm />} />
+        <Route path="kavyanjali" element={<GeuKavyanjali />} />
       </Route>
       <Route path="gehu" element={<Gehu />} >
         <Route path="ieee" element={<GehuIeee />} />

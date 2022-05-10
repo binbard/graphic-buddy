@@ -13,3 +13,10 @@
 .sv100 {
   height: 500px;
 }
+
+.ecard:hover{
+  cursor: cell;
+}
+.ecard_title{
+  
+}

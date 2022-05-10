@@ -17,7 +17,7 @@ async function okGet() {
     //     forDeemed: form.forDeemed,
     //     forHill: form.forHill,
     // }
-    const evs = await collection.find({ forDeemed: true, org:"ieee"})
+    const evs = await collection.find({ forDeemed: true, org:"kavyanjali"})
         .then(okEvs => {
             console.log(okEvs)
             return okEvs
@@ -26,7 +26,7 @@ async function okGet() {
 }
 
 
-export default class GeuIeee extends React.Component {
+export default class GeuKavyanjali extends React.Component {
 
     state = {
         evs: [],
