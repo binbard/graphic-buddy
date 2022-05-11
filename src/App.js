@@ -31,11 +31,11 @@ function Router() {
       <Route path="geu" element={<Geu />} >
         <Route path="ieee" element={<GeuIeee />} />
         <Route path="acm" element={<GeuAcm />} />
+        <Route path="kavyanjali" element={<GeuKavyanjali />} />
       </Route>
       <Route path="gehu" element={<Gehu />} >
         <Route path="ieee" element={<GehuIeee />} />
         <Route path="acm-w" element={<GehuAcmw />} />
-        <Route path="kavyanjali" element={<GeuKavyanjali />} />
       </Route>
       <Route path="admin" element={<Alogin />} />
       <Route path="admin/create-event" element={<CreateEvent />} />
