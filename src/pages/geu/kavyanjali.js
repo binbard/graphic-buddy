@@ -50,7 +50,7 @@ export default class GeuKavyanjali extends React.Component {
     render() {
         const events = this.state.evs.map(evs => (
 
-            <div className="card ecard">
+            <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}>
                 <div className="blurring dimmable image">
                     <div className="ui dimmer">
                         <div className="content">
@@ -82,7 +82,7 @@ export default class GeuKavyanjali extends React.Component {
 
                     {events}
 
-                    {/* <div className="card ecard" onClick={function(e){e.preventDefault();window.location.href="https://example.com"}}>
+                    {/* <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}> onClick={function(e){e.preventDefault();window.location.href="https://example.com"}}>
                         <div className="blurring dimmable image">
                             <div className="ui dimmer">
                                 <div className="content">
@@ -107,7 +107,7 @@ export default class GeuKavyanjali extends React.Component {
                         </div>
                     </div> */}
 
-                    {/* {[...Array(10)].map((e, i) => <div className="card ecard">
+                    {/* {[...Array(10)].map((e, i) => <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}>>
                         <div className="blurring dimmable image">
                             <div className="ui dimmer">
                                 <div className="content">
@@ -133,7 +133,7 @@ export default class GeuKavyanjali extends React.Component {
                     </div>)} */}
 
 
-                    {/* <div className="card ecard">
+                    {/* <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}>>
                         <div className="blurring dimmable image">
                             <div className="ui inverted dimmer">
                                 <div className="content">

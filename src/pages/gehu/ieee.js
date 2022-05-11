@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import * as Realm from "realm-web";
 
 const APP_ID = 'application-0-lkkyg';
@@ -7,7 +8,7 @@ const app = new Realm.App({ id: APP_ID });
 async function okGet() {
     const mongo = app.currentUser.mongoClient('mongodb-atlas');
     const collection = mongo.db('events').collection('geu');
-    const evs = await collection.find({ forHill: true, org:"ieee" })
+    const evs = await collection.find({ forHill: true, org: "ieee" })
         .then(okEvs => {
             console.log(okEvs)
             return okEvs
@@ -33,7 +34,7 @@ export default class GehuIeee extends React.Component {
     render() {
         const events = this.state.evs.map(evs => (
 
-            <div className="card ecard">
+            <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}>
                 <div className="blurring dimmable image">
                     <div className="ui dimmer">
                         <div className="content">
@@ -65,7 +66,7 @@ export default class GehuIeee extends React.Component {
 
                     {events}
 
-                    <div className="card ecard" onClick={function(e){e.preventDefault();window.location.href="https://example.com"}}>
+                    <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}>
                         <div className="blurring dimmable image">
                             <div className="ui dimmer">
                                 <div className="content">
@@ -90,7 +91,7 @@ export default class GehuIeee extends React.Component {
                         </div>
                     </div>
 
-                    {[...Array(10)].map((e, i) => <div className="card ecard">
+                    {[...Array(10)].map((e, i) => <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}>
                         <div className="blurring dimmable image">
                             <div className="ui dimmer">
                                 <div className="content">
@@ -116,7 +117,7 @@ export default class GehuIeee extends React.Component {
                     </div>)}
 
 
-                    <div className="card ecard">
+                    <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}>
                         <div className="blurring dimmable image">
                             <div className="ui inverted dimmer">
                                 <div className="content">

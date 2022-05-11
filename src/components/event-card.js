@@ -21,7 +21,7 @@ export default function EventCard() {
     return (
         <div>
             <div className="ui special cards">
-                <div className="card">
+                <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}>
                     <div className="blurring dimmable image">
                         <div className="ui dimmer">
                             <div className="content">
@@ -46,7 +46,7 @@ export default function EventCard() {
                     </div>
                 </div>
 
-                {[...Array(10)].map((e, i) => <div className="card">
+                {[...Array(10)].map((e, i) => <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}>
                     <div className="blurring dimmable image">
                         <div className="ui dimmer">
                             <div className="content">
@@ -72,7 +72,7 @@ export default function EventCard() {
                 </div>)}
 
 
-                <div className="card">
+                <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}>
                     <div className="blurring dimmable image">
                         <div className="ui inverted dimmer">
                             <div className="content">

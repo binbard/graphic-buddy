@@ -1,5 +1,4 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import EventCard from "../../components/event-card";
 import * as Realm from "realm-web";
 
 const APP_ID = 'application-0-lkkyg';
@@ -23,7 +22,7 @@ export default function Gehu() {
 
     const getData = () =>
         gehuEvents()
-            .then(ev => evs == ev)
+            .then(ev => evs === ev)
             .then(console.log("pamo"))
 
     var navigate = useNavigate();
@@ -38,8 +37,8 @@ export default function Gehu() {
             el.classList.remove("active");
         });
         e.currentTarget.classList.toggle("active");
-        if (e.currentTarget.innerHTML == "IEEE") { console.log("ieee"); navigate('/gehu/ieee'); }
-        else if (e.currentTarget.innerHTML == "ACM-W") { console.log("acm"); navigate('/gehu/acm-w'); }
+        if (e.currentTarget.innerHTML === "IEEE") { console.log("ieee"); navigate('/gehu/ieee'); }
+        else if (e.currentTarget.innerHTML === "ACM-W") { console.log("acm"); navigate('/gehu/acm-w'); }
     }
 
     return (

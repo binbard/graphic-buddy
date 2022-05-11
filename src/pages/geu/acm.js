@@ -33,7 +33,7 @@ export default class GeuAcm extends React.Component {
     render() {
         const events = this.state.evs.map(evs => (
 
-            <div className="card ecard">
+            <div className="card ecard" onClick={(e)=>{e.preventDefault();window.open(evs.eventLink?evs.eventLink:"https://www.geu.ac.in/content/geu/en/events.html","_blank")}}>>
                 <div className="blurring dimmable image">
                     <div className="ui dimmer">
                         <div className="content">
