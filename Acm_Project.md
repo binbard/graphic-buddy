@@ -18,3 +18,10 @@ Majority part of the website is done:
 
 # Final Output
 
+
+Home
+<img src="https://raw.githubusercontent.com/crogdev/graphic-buddy/main/raw/chrome_KYNqTqR8fp.png" alt="HOME"/>
+Create Event
+<img src="https://github.com/crogdev/graphic-buddy/blob/main/raw/chrome_8g9FUxiQGa.png" alt="CREATE_EVENT"/>
+Event Cards
+<img src="https://github.com/crogdev/graphic-buddy/blob/main/raw/chrome_Dg7EMNePZH.png" alt="HOME"/>
